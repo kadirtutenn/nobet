@@ -1,0 +1,43 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nöbet Listesi</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Nöbet Listesi Oluştur</h2>
+        
+        <form method="post">
+            <h2>Ankara A Bölgesi Savcıları:</h2>
+            {% for i in range(6) %}
+            <input type="text" name="prosecutorsA[]" required><br>
+            {% endfor %}
+
+            <h2>Ankara B Bölgesi Savcıları:</h2>
+            {% for i in range(6) %}
+            <input type="text" name="prosecutorsB[]" required><br>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary">Listeyi Oluştur</button>
+        </form>
+        {% if tables %}
+            <h2>Ankara A Bölgesi</h2>
+            {{ tables[0]|safe }}
+            <h2>Ankara B Bölgesi</h2>
+            {{ tables[1]|safe }}
+
+            <h2>{{ titles[3] }}</h2>
+            {{ tables[2]|safe }}
+
+            <h2>{{ titles[4] }}</h2>
+            {{ tables[3]|safe }}
+            <h2>{{ titles[5] }}</h2>
+            {{ tables[4]|safe }}
+
+            <h2>{{ titles[6] }}</h2>
+            {{ tables[5]|safe }}
+        {% endif %}
+    </div>
+</body>
+</html>
